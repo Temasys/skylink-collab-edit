@@ -105,7 +105,24 @@ function syncText(event){
 /************ ABOUT how to operate the postion of cursor ********/
 
 //INIT
-function getCursorPositionInit(
+function getCursorPositionInit(ctrl){
+  var startPos = 0;
+    if(document.selection) {// IE Support 
+      ctrl.focus(); 
+      var Sel = document.selection.createRange(); 
+      var Sel2 = Sel.duplicate(); 
+      Sel2.moveToElementText(ctrl); 
+      var startPos = -1; 
+      while(Sel2.inRange(Sel)){ 
+      Sel2.moveStart('character'); 
+      startPos++; 
+    } 
+    }else if(ctrl.selectionStart || ctrl.selectionStart == '0'){// Firefox support 
+      startPos = ctrl.selectionStart; 
+    } 
+  
+  skylink.sendMessage(); 
+}
 
 
 //get the position of the cursor 
