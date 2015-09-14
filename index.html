@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>WebRTC with SkylinkJS</title>
+
+    <link rel="stylesheet" href="chat.css" type="text/css" />
+  
+    <script src="//cdn.temasys.com.sg/skylink/skylinkjs/0.6.x/skylink.complete.min.js"></script>
+    <script src="jquery.js" type="text/javascript"></script>
+    
+    <script src="chat.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <header>
+    <a href="http://skylink.io/web">More about SkylinkJS</a>
+    <input type="text" id="name" placeholder="My name" autofocus />
+    <button onclick="setName()">Set my name</button>
+    <button onclick="joinRoom()">Join room</button>
+    <button onclick="leaveRoom()">Leave room</button>
+    <br/>
+<!--     <input type="text" id="message" placeholder="My message" class="field"/>
+    <button onclick="sendMessage()">Send message</button> -->
+    <a href="http://local:8000/index.html" target="_blank">Open a new tab to chat with yourself</a>
+  </header>
+  
+  <div id="container" class="field">
+    <div id="chatbox"></div>
+  </div>
+
+  <div>
+    <h5>Please modify the contents of the text field.<h5>
+    <input type="text" oninput="OnInput (event)" onpropertychange="OnPropChanged (event)" value="Text field" />
+  </div>
+
+  <div>
+    
+    <textarea id="synctext" rows="3" cols="120" onfocus="getCursorPositionInit(event)" oninput="syncText(event)" onpropertychange="syncText(event)" placeholder="Please modify the text here to verify if it works. I hope it works. But if not, I wouldn't give up.">Please modify the text here to verify if it works. I hope it works. But if not, I wouldn't give up.
+    </textarea>
+  </div>
+  
+</body>
+</html>
